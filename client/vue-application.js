@@ -18,9 +18,11 @@ var app = new Vue({
 			}
 			return tab;
 		},
-		dayName: function (day, month, year) {
+		dayName: function (day) {
 			days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-			dayDate = new Date(year, month - 1, day).getDay() % 7;
+			dateURL =
+				this.selectedMonth + "/" + (parseInt(day, 10) + parseInt(1, 10)) + "/" + this.selectedYear;
+			dayDate = new Date(dateURL).getDay();
 			return days[dayDate];
 		},
 	},

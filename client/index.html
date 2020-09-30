@@ -17,7 +17,7 @@
 					style="list-style: none"
 					v-for="day in daysOfMonth(this.selectedMonth,this.selectedYear)"
 				>
-					{{ day + 1 }} : {{ dayName(day, this.selectedMonth, this.selectedYear) }}
+					{{ day + 1 }} : {{ dayName(day) }}
 				</li>
 			</ul>
 			<select v-model="selectedMonth">
