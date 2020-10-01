@@ -11,14 +11,7 @@
 	<body>
 		<div id="app">
 			<p>Il y a {{ getDaysInMonth(this.selectedMonth,this.selectedYear) }} jours dans ce mois.</p>
-			<ul>
-				<li
-					style="list-style: none"
-					v-for="day in daysOfMonth(this.selectedMonth,this.selectedYear)"
-				>
-					{{ day + 1 }} : {{ dayName(day) }}
-				</li>
-			</ul>
+			<days-of-month :month="selectedMonth" :year="selectedYear"></days-of-month>
 			<select v-model="selectedMonth">
 				<option value="1">January</option>
 				<option value="2">February</option>
