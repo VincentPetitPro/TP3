@@ -7,8 +7,5 @@ var app = new Vue({
 		parentSelectedMonth: new Date().getMonth() + 1,
 		parentSelectedYear: new Date().getFullYear(),
 	},
-	components: {
-		HelloOtherWorld,
-		DatePicker,
-	},
+	components: { DatePicker },
 });

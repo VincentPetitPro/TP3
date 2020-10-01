@@ -34,11 +34,19 @@
 module.exports = {
 	data: function () {
 		return {
-			selectedMonth: new Date().getMonth() + 1,
-			selectedYear: new Date().getFullYear(),
+			selectedMonth: this.month,
+			selectedYear: this.year,
 		};
 	},
-	props: {},
+	props: { month: Number, year: Number },
+	watch: {
+		month: function () {
+			this.selectedMonth = this.month;
+		},
+		year: function () {
+			this.selectedYear = this.year;
+		},
+	},
 	methods: {
 		getDaysInMonth: function (month, year) {
 			return new Date(year, month, 0).getDate();
