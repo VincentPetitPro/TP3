@@ -4,7 +4,6 @@ const DaysOfYear = window.httpVueLoader("./components/DaysOfYear.vue");
 var app = new Vue({
 	el: "#app",
 	data: {
-		selectedMonth: new Date().getMonth() + 1,
 		selectedYear: new Date().getFullYear(),
 	},
 	methods: {

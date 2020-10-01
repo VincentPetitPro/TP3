@@ -1,10 +1,10 @@
 <template>
-	<div>
-		<h1>{{ monthNames[this.selectedMonth - 1] }}</h1>
+	<div class="container">
+		<h2>{{ monthNames[this.selectedMonth - 1] }}</h2>
 		<ul>
 			<li v-bind:key="day" v-for="day in daysOfMonth(this.selectedMonth, this.selectedYear)">
-				<p>{{ dayName(day) }}</p>
-				<p>{{ day + 1 }}</p>
+				<p class="day-name">{{ dayName(day) }}</p>
+				<p class="day-number">{{ day + 1 }}</p>
 			</li>
 		</ul>
 	</div>
@@ -65,8 +65,33 @@ module.exports = {
 </script>
 
 <style lang="css" scoped>
-li {
+.container {
+	border-right: 1px solid black;
+}
+h2 {
+	text-align: center;
+}
+ul {
+	display: flex;
+	flex-wrap: wrap;
 	list-style: none;
-	flex: auto;
+	width: 534px;
+	margin: 10px;
+	padding: 0;
+}
+li {
+	border: 1px;
+	background-color: #00bce4;
+	border-radius: 50px;
+	padding: 4px;
+	width: 92px;
+	height: 92px;
+	margin: 2px;
+}
+.day-name {
+	font-size: 16px;
+}
+.day-number {
+	font-size: 24px;
 }
 </style>

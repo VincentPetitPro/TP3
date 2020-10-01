@@ -1,19 +1,10 @@
 <template>
 	<div>
-		<p>{{ year }}</p>
+		<h1>{{ year }}</h1>
 		<div class="daysOfYearContainer">
-			<days-of-month :month="1" :year="2020"></days-of-month>
-			<days-of-month :month="2" :year="2020"></days-of-month>
-			<days-of-month :month="3" :year="2020"></days-of-month>
-			<days-of-month :month="4" :year="2020"></days-of-month>
-			<days-of-month :month="5" :year="2020"></days-of-month>
-			<days-of-month :month="6" :year="2020"></days-of-month>
-			<days-of-month :month="7" :year="2020"></days-of-month>
-			<days-of-month :month="8" :year="2020"></days-of-month>
-			<days-of-month :month="9" :year="2020"></days-of-month>
-			<days-of-month :month="10" :year="2020"></days-of-month>
-			<days-of-month :month="11" :year="2020"></days-of-month>
-			<days-of-month :month="12" :year="2020"></days-of-month>
+			<div v-for="(month, index) in monthTab" :key="index">
+				<days-of-month :month="month" :year="year"></days-of-month>
+			</div>
 		</div>
 	</div>
 </template>
@@ -26,16 +17,25 @@ module.exports = {
 	props: { year: Number },
 	watch: {},
 	methods: {},
+	computed: {
+		monthTab: function () {
+			return Array.from({ length: 12 }, (value, index) => index + 1);
+		},
+	},
 	components: { DaysOfMonth },
 };
 </script>
 
 <style lang="css" scoped>
+h1 {
+	text-align: center;
+}
 p {
 	text-align: center;
 }
 .daysOfYearContainer {
 	display: flex;
 	overflow-x: scroll;
+	overflow-y: hidden;
 }
 </style>
