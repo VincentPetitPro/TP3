@@ -1,4 +1,6 @@
 const DaysOfMonth = window.httpVueLoader("./components/DaysOfMonth.vue");
+const DaysOfYear = window.httpVueLoader("./components/DaysOfYear.vue");
+
 var app = new Vue({
 	el: "#app",
 	data: {
@@ -15,5 +17,5 @@ var app = new Vue({
 			return Array.from({ length: 2100 - 1900 }, (value, index) => 1901 + index);
 		},
 	},
-	components: { DaysOfMonth },
+	components: { DaysOfYear, DaysOfMonth },
 });

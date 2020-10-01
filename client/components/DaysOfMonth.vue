@@ -1,13 +1,13 @@
 <template>
-	<ul>
-		<li
-			v-bind:key="day"
-			style="list-style: none"
-			v-for="day in daysOfMonth(this.selectedMonth, this.selectedYear)"
-		>
-			{{ day + 1 }} : {{ dayName(day) }}
-		</li>
-	</ul>
+	<div>
+		<h1>{{ monthNames[this.selectedMonth - 1] }}</h1>
+		<ul>
+			<li v-bind:key="day" v-for="day in daysOfMonth(this.selectedMonth, this.selectedYear)">
+				<p>{{ dayName(day) }}</p>
+				<p>{{ day + 1 }}</p>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -16,6 +16,20 @@ module.exports = {
 		return {
 			selectedMonth: this.month,
 			selectedYear: this.year,
+			monthNames: [
+				"January",
+				"February",
+				"March",
+				"April",
+				"May",
+				"June",
+				"July",
+				"August",
+				"September",
+				"October",
+				"November",
+				"December",
+			],
 		};
 	},
 	props: { month: Number, year: Number },
@@ -49,3 +63,10 @@ module.exports = {
 	},
 };
 </script>
+
+<style lang="css" scoped>
+li {
+	list-style: none;
+	flex: auto;
+}
+</style>
