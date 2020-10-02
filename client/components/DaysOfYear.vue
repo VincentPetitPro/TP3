@@ -3,7 +3,7 @@
 		<h1>{{ year }}</h1>
 		<div class="daysOfYearContainer">
 			<div v-for="(month, index) in monthTab" :key="index">
-				<days-of-month :month="month" :year="year"></days-of-month>
+				<days-of-month :month="month" :year="year" :holidays="holidays"></days-of-month>
 			</div>
 		</div>
 	</div>
@@ -12,7 +12,12 @@
 <script>
 module.exports = {
 	data: function () {
-		return {};
+		return {
+			response: fetch("http://vps-4401e6e0.vps.ovh.net/api/v2/PublicHolidays/" + this.year + "/FR")
+				.then((response) => response.json())
+				.then((data) => (this.holidays = data)),
+			holidays: [],
+		};
 	},
 	props: { year: Number },
 	watch: {},
